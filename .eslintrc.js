@@ -25,14 +25,8 @@ module.exports = {
     'no-multi-spaces': 1,
     'no-unused-vars': 1,
     semi: [1, 'always'],
-    'space-before-function-paren': [
-      1,
-      {
-        anonymous: 'never',
-        named: 'never',
-        asyncArrow: 'always',
-      },
-    ],
+    'space-before-function-paren': 0,
     'spaced-comment': 1,
+    'no-irregular-whitespace': 0,
   },
 };
