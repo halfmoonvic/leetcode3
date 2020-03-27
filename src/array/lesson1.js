@@ -50,7 +50,6 @@ var letterCombinations = function (digits) {
 
 module.exports = letterCombinations;
 
-console.log(letterCombinations('23'));
 
 // 第一次看见时的想法
 // 思路就是简单的不断的合并两个已有的数组
