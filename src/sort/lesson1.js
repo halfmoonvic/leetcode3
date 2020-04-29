@@ -1,4 +1,7 @@
 // 伪冒泡排序，这个是单纯的比较所有值的大小
+// 啥啊，这TMD就是 选择排序
+// 所谓的选择排序就是 选出数组当中最小/最大的那个 值来
+// 将其放置到数组的最开始的位置去，如此往复就好了
 // var sort = function (arr) {
 //   for (let i = 0; i < arr.length; i++) {
 //     for (let j = i + 1; j < arr.length; j++) {
