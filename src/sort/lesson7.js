@@ -26,6 +26,40 @@ function quickSort(arr) {
   return _quickSort(arr);
 }
 
-module.exports = quickSort;
-
 // console.log(quickSort([2, 1, 4, 1, 5]));
+
+// 划分交换排序
+function quickSort2(arr) {
+  // 数组指定两个位置进行值交换
+  let swap = (arr, i, j) => {
+    const temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  };
+
+  let findCenter = (arr, left, right) => {
+    let flag = arr[left];
+    let idx = left + 1;
+    for (let i = idx; i <= right; i++) {
+      if (arr[i] < flag) {
+        swap(arr, idx, i);
+        idx++;
+      }
+    }
+    swap(arr, left, idx - 1);
+    return idx;
+  };
+
+  let sort = (arr, left, right) => {
+    if (left < right) {
+      let center = findCenter(arr, left, right);
+      sort(arr, left, center - 1);
+      sort(arr, center, right);
+    }
+  };
+
+  sort(arr, 0, arr.length - 1);
+  return arr;
+}
+
+module.exports = { quickSort, quickSort2 };
