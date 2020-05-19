@@ -40,6 +40,9 @@ var letterCombinations = function (digits) {
       res = res.reduce((accumulator, c) => {
         return accumulator.concat(current.map(v => c + v));
       }, []);
+      // res = res.flatMap(val => {
+      //   return current.map(v => val + v);
+      // });
     }
 
     return combine(digits.slice(1), res);
@@ -50,10 +53,9 @@ var letterCombinations = function (digits) {
 
 module.exports = letterCombinations;
 
-
 // 第一次看见时的想法
 // 思路就是简单的不断的合并两个已有的数组
-var letterCombinations2 = function(digits) {
+var letterCombinations2 = function (digits) {
   if (!digits) {
     return [];
   }
@@ -91,3 +93,5 @@ var letterCombinations2 = function(digits) {
 
   return output;
 };
+
+console.log(letterCombinations('23'));
