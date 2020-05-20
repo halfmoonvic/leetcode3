@@ -36,4 +36,18 @@ var sort2 = function (arr) {
 };
 
 module.exports = sort2;
-// console.log(sort2([5, 2, 7, 1, 3, 4]));
+
+// 这个是 从后面 向前排
+function sort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = arr.length - 1; j > i; j--) {
+      if (arr[j] < arr[j - 1]) {
+        const temp = arr[j];
+        arr[j] = arr[j - 1];
+        arr[j - 1] = temp;
+      }
+    }
+  }
+  return arr;
+}
+// console.log(sort([5, 2, 7, 1, 3, 4]));
