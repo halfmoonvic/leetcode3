@@ -32,16 +32,19 @@ var letterCombinations = function (digits) {
     if (!digits) {
       return res;
     }
-    const current = map[digits[0]].split('');
+
+    const currentWords = map[digits[0]].split('');
 
     if (!res.length) {
-      res = current;
+      res = currentWords;
     } else {
-      res = res.reduce((accumulator, c) => {
-        return accumulator.concat(current.map(v => c + v));
+      res = res.reduce((prev, current) => {
+        const combinedWords = currentWords.map(w => current + w);
+        return prev.concat(combinedWords);
       }, []);
+
       // res = res.flatMap(val => {
-      //   return current.map(v => val + v);
+      //   return currentWords.map(w => val + w);
       // });
     }
 
@@ -50,6 +53,8 @@ var letterCombinations = function (digits) {
 
   return combine(digits);
 };
+
+// console.log(letterCombinations('234'));
 
 module.exports = letterCombinations;
 
@@ -87,7 +92,12 @@ var letterCombinations2 = function (digits) {
     lettersMap.push(defaultLettersMap[v]);
   });
 
+  // console.log(lettersMap)
+
   const output = lettersMap.reduce((current, next) => {
+    // 这个并不是累加了，concat 已经是收集的作用了，即每次循环都还会将之前的值给保留下来
+    // return current.concat(twoNumbersMap(current, next));
+    // 这个才是累加，即每次仅要最后生成的值
     return twoNumbersMap(current, next);
   });
 
