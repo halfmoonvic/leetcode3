@@ -69,5 +69,15 @@ var canPlaceFlowers2 = function (flowerbed, n) {
 // 就是 对数组 match 出 所有的 [1, 0, 0, 0, 1] 这种结构，数中间有多少个0，便有相应多少盆
 // 也有边界的问题，不过 直接就 首位 部 [1, 0, ..., 0, 1] 就好了
 
-module.exports = {canPlaceFlowers, canPlaceFlowers2};
+var canPlaceFlowers3 = function (flowerbed, n) {
+  const arr = [1, 0, ...flowerbed, 0, 1];
 
+  const number = arr.join('').match(/0+/g);
+  const count = number.reduce((prev, current) => {
+    return prev + Math.floor((current.length - 1) / 2);
+  }, 0);
+
+  return count >= n;
+};
+
+module.exports = { canPlaceFlowers, canPlaceFlowers2, canPlaceFlowers3 };
